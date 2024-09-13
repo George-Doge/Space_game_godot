@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://plmt0tbeiycb"]
+
+[ext_resource type="Texture2D" uid="uid://dticcphu05st2" path="res://assets/sprites/station.png" id="1_r13td"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l7pt6"]
+radius = 200.16
+
+[node name="Station" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_r13td")
+
+[node name="CommsArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CommsArea"]
+shape = SubResource("CircleShape2D_l7pt6")

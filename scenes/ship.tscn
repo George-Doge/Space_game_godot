@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://c0eo82adv7gd0"]
+
+[ext_resource type="Script" path="res://scripts/ship.gd" id="1_8clab"]
+[ext_resource type="Texture2D" uid="uid://bw7ys0fiupnrd" path="res://assets/sprites/ship/ship-state1.png" id="1_n7tct"]
+[ext_resource type="Texture2D" uid="uid://g3yiwoqnbxy" path="res://assets/sprites/ship/ship-state0.png" id="2_56vg2"]
+[ext_resource type="Texture2D" uid="uid://bvn01f4ccbfe0" path="res://assets/sprites/ship/ship-state2.png" id="2_fw1mq"]
+[ext_resource type="Texture2D" uid="uid://owheh2fkx6cm" path="res://assets/sprites/ship/ship_state_off.png" id="3_ibxn2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bf6p2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ibxn2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_56vg2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_n7tct")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fw1mq")
+}],
+"loop": true,
+"name": &"movement",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pexft"]
+radius = 42.003
+
+[node name="Ship" type="CharacterBody2D"]
+script = ExtResource("1_8clab")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bf6p2")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("CircleShape2D_pexft")

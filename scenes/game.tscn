@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://bqlmgvbsou231"]
+
+[ext_resource type="PackedScene" uid="uid://c0eo82adv7gd0" path="res://scenes/ship.tscn" id="1_87gbl"]
+[ext_resource type="Texture2D" uid="uid://crb143t4sv03d" path="res://assets/background/planet.jpeg" id="2_m85pd"]
+[ext_resource type="FontFile" uid="uid://c4c7awnpvvdux" path="res://assets/fonts/quaver.ttf" id="3_vi1va"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="4_ddsvd"]
+[ext_resource type="PackedScene" uid="uid://plmt0tbeiycb" path="res://scenes/station.tscn" id="5_lovqj"]
+[ext_resource type="PackedScene" uid="uid://grlgbnw4f61m" path="res://scenes/asteroid.tscn" id="6_ywbp5"]
+[ext_resource type="PackedScene" uid="uid://buvietb3wse14" path="res://scenes/debris.tscn" id="7_ita1m"]
+[ext_resource type="PackedScene" uid="uid://cop6vdsnbpu8f" path="res://scenes/laser.tscn" id="8_pbr08"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960, 536)
+texture = ExtResource("2_m85pd")
+
+[node name="Ship" parent="." instance=ExtResource("1_87gbl")]
+position = Vector2(536, 304)
+
+[node name="Camera2D" type="Camera2D" parent="Ship"]
+zoom = Vector2(1.3, 1.3)
+position_smoothing_enabled = true
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 794.0
+offset_bottom = 213.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_vi1va")
+theme_override_font_sizes/font_size = 50
+text = "TEST 0.1 OF GODOT SPACE GAME
+Movement:
+WASD
+F5/F9 are also binded"
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_ddsvd")
+
+[node name="Station" parent="." instance=ExtResource("5_lovqj")]
+position = Vector2(296, 496)
+
+[node name="Asteroid" parent="." instance=ExtResource("6_ywbp5")]
+position = Vector2(336, 264)
+
+[node name="Debris" parent="." instance=ExtResource("7_ita1m")]
+position = Vector2(232, 264)
+
+[node name="Laser" parent="." instance=ExtResource("8_pbr08")]
+position = Vector2(416, 272)
