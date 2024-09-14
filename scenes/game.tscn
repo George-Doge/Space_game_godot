@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqlmgvbsou231"]
+[gd_scene load_steps=12 format=3 uid="uid://bqlmgvbsou231"]
 
 [ext_resource type="PackedScene" uid="uid://c0eo82adv7gd0" path="res://scenes/ship.tscn" id="1_87gbl"]
 [ext_resource type="Texture2D" uid="uid://crb143t4sv03d" path="res://assets/background/planet.jpeg" id="2_m85pd"]
@@ -8,33 +8,51 @@
 [ext_resource type="PackedScene" uid="uid://grlgbnw4f61m" path="res://scenes/asteroid.tscn" id="6_ywbp5"]
 [ext_resource type="PackedScene" uid="uid://buvietb3wse14" path="res://scenes/debris.tscn" id="7_ita1m"]
 [ext_resource type="PackedScene" uid="uid://cop6vdsnbpu8f" path="res://scenes/laser.tscn" id="8_pbr08"]
+[ext_resource type="PackedScene" uid="uid://vgvlko2psnn1" path="res://scenes/player_ui.tscn" id="9_ahu8o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yh750"]
+size = Vector2(18, 1096)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qokhb"]
+size = Vector2(1936, 12)
 
 [node name="Game" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(960, 536)
+position = Vector2(960, 542)
+scale = Vector2(1, 1.0037)
 texture = ExtResource("2_m85pd")
 
 [node name="Ship" parent="." instance=ExtResource("1_87gbl")]
 position = Vector2(536, 304)
 
+[node name="PlayerUI2" parent="Ship" instance=ExtResource("9_ahu8o")]
+
 [node name="Camera2D" type="Camera2D" parent="Ship"]
 zoom = Vector2(1.3, 1.3)
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
 position_smoothing_enabled = true
 metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = 794.0
-offset_bottom = 213.0
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 806.0
+offset_bottom = 280.0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_vi1va")
 theme_override_font_sizes/font_size = 50
 text = "TEST 0.1 OF GODOT SPACE GAME
+ESC
+F5/F9
 Movement:
 WASD
-F5/F9 are also binded"
+"
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -51,3 +69,23 @@ position = Vector2(232, 264)
 
 [node name="Laser" parent="." instance=ExtResource("8_pbr08")]
 position = Vector2(416, 272)
+
+[node name="WorldBorder" type="StaticBody2D" parent="."]
+
+[node name="CollisionShapeLeft" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(-9, 540)
+shape = SubResource("RectangleShape2D_yh750")
+
+[node name="CollisionShapeRight" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(1929, 544)
+shape = SubResource("RectangleShape2D_yh750")
+
+[node name="CollisionShapeBottom" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(968, 1090)
+shape = SubResource("RectangleShape2D_qokhb")
+
+[node name="CollisionShapeTop" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(952, -6)
+shape = SubResource("RectangleShape2D_qokhb")
+
+[node name="Player_UI" parent="." instance=ExtResource("9_ahu8o")]

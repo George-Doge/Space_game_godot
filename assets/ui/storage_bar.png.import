@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0nfwv8b566e1"
-path="res://.godot/imported/storage_bar.png-ad801ca72da57bca4e2bc19c512fcfa2.ctex"
+uid="uid://dn261k8bp2eg2"
+path="res://.godot/imported/storage_bar.png-d5aff561f48d57950732f225b508a2fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buttons/storage_bar.png"
-dest_files=["res://.godot/imported/storage_bar.png-ad801ca72da57bca4e2bc19c512fcfa2.ctex"]
+source_file="res://assets/ui/storage_bar.png"
+dest_files=["res://.godot/imported/storage_bar.png-d5aff561f48d57950732f225b508a2fc.ctex"]
 
 [params]
 
