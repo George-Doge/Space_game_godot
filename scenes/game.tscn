@@ -35,38 +35,9 @@ limit_bottom = 1080
 position_smoothing_enabled = true
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="."]
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = 12.0
-offset_top = 13.0
-offset_right = 806.0
-offset_bottom = 280.0
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_vi1va")
-theme_override_font_sizes/font_size = 50
-text = "TEST 0.1 OF GODOT SPACE GAME
-ESC
-F5/F9
-Movement:
-WASD
-"
-
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_ddsvd")
-
-[node name="Station" parent="." instance=ExtResource("5_lovqj")]
-position = Vector2(296, 496)
-
-[node name="Asteroid" parent="." instance=ExtResource("6_ywbp5")]
-position = Vector2(336, 264)
-
-[node name="Debris" parent="." instance=ExtResource("7_ita1m")]
-position = Vector2(232, 264)
-
-[node name="Laser" parent="." instance=ExtResource("8_pbr08")]
-position = Vector2(416, 272)
 
 [node name="WorldBorder" type="StaticBody2D" parent="."]
 
@@ -87,6 +58,28 @@ position = Vector2(952, -6)
 shape = SubResource("RectangleShape2D_qokhb")
 
 [node name="Player_UI" parent="." instance=ExtResource("9_ahu8o")]
+
+[node name="Showcase" type="Node2D" parent="."]
+
+[node name="Station" parent="Showcase" instance=ExtResource("5_lovqj")]
+position = Vector2(296, 496)
+
+[node name="Asteroid" parent="Showcase" instance=ExtResource("6_ywbp5")]
+position = Vector2(336, 264)
+
+[node name="Debris" parent="Showcase" instance=ExtResource("7_ita1m")]
+position = Vector2(232, 264)
+
+[node name="Laser" parent="Showcase" instance=ExtResource("8_pbr08")]
+position = Vector2(416, 272)
+
+[node name="Label" type="Label" parent="Showcase"]
+offset_left = 80.0
+offset_top = 363.0
+offset_right = 558.0
+offset_bottom = 386.0
+theme_override_fonts/font = ExtResource("3_vi1va")
+text = "Objects Showcase, after port delete the whole 2D node please"
 
 [connection signal="credits_change" from="Ship" to="Player_UI" method="_on_ship_credits_change"]
 [connection signal="energy_change" from="Ship" to="Player_UI" method="_on_ship_energy_change"]
