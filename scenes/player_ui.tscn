@@ -1,50 +1,76 @@
-[gd_scene load_steps=6 format=3 uid="uid://vgvlko2psnn1"]
+[gd_scene load_steps=9 format=3 uid="uid://vgvlko2psnn1"]
 
+[ext_resource type="Texture2D" uid="uid://c67d0udefq27b" path="res://assets/ui/bar_background.png" id="1_cu81l"]
+[ext_resource type="Texture2D" uid="uid://duaktadak6y5g" path="res://assets/ui/energy_bar_bar.png" id="1_gpxd6"]
 [ext_resource type="Texture2D" uid="uid://cbg2mum3v1mpt" path="res://assets/ui/energy_bar.png" id="1_kfjcs"]
+[ext_resource type="Script" path="res://scripts/player_ui.gd" id="1_n1uim"]
 [ext_resource type="Texture2D" uid="uid://dn261k8bp2eg2" path="res://assets/ui/storage_bar.png" id="2_p3b1t"]
 [ext_resource type="FontFile" uid="uid://c4c7awnpvvdux" path="res://assets/fonts/quaver.ttf" id="3_4fwqt"]
 [ext_resource type="Texture2D" uid="uid://ddelb70c68y2d" path="res://assets/ui/coin.png" id="3_4ptnv"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tv1db"]
-size = Vector2(100, 40)
+[ext_resource type="Texture2D" uid="uid://b638pajrst6qq" path="res://assets/ui/storage_bar_bar.png" id="4_lhbit"]
 
 [node name="Player_UI" type="CanvasLayer"]
-
-[node name="EnergyBar" type="Sprite2D" parent="."]
-position = Vector2(95, 34)
-scale = Vector2(1.2, 1.2)
-texture = ExtResource("1_kfjcs")
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="EnergyBar"]
-offset_left = -30.8333
-offset_top = -20.0
-offset_right = 69.1667
-offset_bottom = 20.0
-value = 100.0
-texture_progress = SubResource("PlaceholderTexture2D_tv1db")
-
-[node name="StorageBar" type="Sprite2D" parent="."]
-position = Vector2(281, 32)
-scale = Vector2(1.2, 1.2)
-texture = ExtResource("2_p3b1t")
-
-[node name="TextureProgressBar2" type="TextureProgressBar" parent="StorageBar"]
-offset_left = -30.0
-offset_top = -20.0
-offset_right = 70.0
-offset_bottom = 20.0
-value = 100.0
-texture_progress = SubResource("PlaceholderTexture2D_tv1db")
+script = ExtResource("1_n1uim")
 
 [node name="CreditsBar" type="Sprite2D" parent="."]
-position = Vector2(411, 34)
+position = Vector2(466, 38)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_4ptnv")
 
 [node name="Label" type="Label" parent="CreditsBar"]
-offset_left = 29.0
-offset_top = -9.0
-offset_right = 109.0
-offset_bottom = 14.0
+offset_left = 27.5
+offset_top = -10.8333
+offset_right = 177.5
+offset_bottom = 20.1667
 theme_override_fonts/font = ExtResource("3_4fwqt")
-text = "{credits}"
+theme_override_font_sizes/font_size = 30
+text = "10"
+
+[node name="StorageBar" type="TextureProgressBar" parent="."]
+offset_left = 280.0
+offset_top = 17.0
+offset_right = 391.0
+offset_bottom = 61.0
+texture_under = ExtResource("1_cu81l")
+texture_progress = ExtResource("4_lhbit")
+
+[node name="Sprite2D" type="Sprite2D" parent="StorageBar"]
+position = Vector2(32, 21)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_p3b1t")
+
+[node name="StorageLabel" type="Label" parent="StorageBar"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = 55.0
+offset_right = 128.0
+offset_bottom = 99.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_4fwqt")
+theme_override_font_sizes/font_size = 20
+text = "Cargo status"
+
+[node name="EnergyBar" type="TextureProgressBar" parent="."]
+offset_left = 79.0
+offset_top = 16.0
+offset_right = 190.0
+offset_bottom = 60.0
+value = 100.0
+texture_under = ExtResource("1_cu81l")
+texture_progress = ExtResource("1_gpxd6")
+
+[node name="Sprite2D" type="Sprite2D" parent="EnergyBar"]
+position = Vector2(31, 22)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_kfjcs")
+
+[node name="EnergyLabel" type="Label" parent="EnergyBar"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = 55.0
+offset_right = 124.0
+offset_bottom = 99.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_4fwqt")
+theme_override_font_sizes/font_size = 20
+text = "Energy status"

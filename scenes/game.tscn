@@ -24,9 +24,7 @@ scale = Vector2(1, 1.0037)
 texture = ExtResource("2_m85pd")
 
 [node name="Ship" parent="." instance=ExtResource("1_87gbl")]
-position = Vector2(536, 304)
-
-[node name="PlayerUI2" parent="Ship" instance=ExtResource("9_ahu8o")]
+position = Vector2(899, 400)
 
 [node name="Camera2D" type="Camera2D" parent="Ship"]
 zoom = Vector2(1.3, 1.3)
@@ -89,3 +87,7 @@ position = Vector2(952, -6)
 shape = SubResource("RectangleShape2D_qokhb")
 
 [node name="Player_UI" parent="." instance=ExtResource("9_ahu8o")]
+
+[connection signal="credits_change" from="Ship" to="Player_UI" method="_on_ship_credits_change"]
+[connection signal="energy_change" from="Ship" to="Player_UI" method="_on_ship_energy_change"]
+[connection signal="storage_change" from="Ship" to="Player_UI" method="_on_ship_storage_change"]
