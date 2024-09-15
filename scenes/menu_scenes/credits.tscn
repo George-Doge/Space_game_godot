@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2dri7tq4s45y"]
+
+[ext_resource type="Texture2D" uid="uid://cye805qgji25w" path="res://assets/background/black_hole.png" id="1_31m0o"]
+[ext_resource type="Script" path="res://scripts/credits.gd" id="1_l4chl"]
+[ext_resource type="FontFile" uid="uid://c4c7awnpvvdux" path="res://assets/fonts/quaver.ttf" id="2_vrllj"]
+[ext_resource type="Texture2D" uid="uid://carvndjmg83op" path="res://assets/buttons/XSquareButton.png" id="3_cbg1g"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l4chl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(575, 324)
+scale = Vector2(0.601042, 0.6)
+texture = ExtResource("1_31m0o")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 56.0
+offset_right = 1008.0
+offset_bottom = 480.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 832.0
+offset_bottom = 419.0
+theme_override_fonts/font = ExtResource("2_vrllj")
+text = "CREDITS
+
+Authors
+- Tislom58
+- George-Doge
+
+ SPRITES
+- Space Station and ship animation by Tislom58
+- Asteroid-1 https://pixelartmaker.com/art/6dab6ecf5720fdf/
+- Ship https://clipartcraft.com/explore/spaceship-clipart-pixel/
+- Asteroid-2 https://pixelartmaker.com/art/b0d28fcc8a7f281
+
+IMAGES
+- Asteroid Belt https://wallpapercave.com/wp/wp4221867.jpg
+- Black Hole https://www.reddit.com/r/PixelArt/comments/a4fp0e/supermassive_black_hole/
+- Space with Earth https://www.peakpx.com/en/hd-wallpaper-desktop-wplat/
+- Menu buttons https://nectanebo.itch.io/menu-buttons) by [nectanebo](https://nectanebo.itch.io/
+
+FONT
+- quaver https://caffinate.itch.io/quaver"
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1056.0
+offset_top = 24.0
+offset_right = 1256.0
+offset_bottom = 224.0
+scale = Vector2(0.35, 0.35)
+tooltip_text = "Return to menu"
+texture_normal = ExtResource("3_cbg1g")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

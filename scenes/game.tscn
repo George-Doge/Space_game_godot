@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bqlmgvbsou231"]
+[gd_scene load_steps=13 format=3 uid="uid://bqlmgvbsou231"]
 
 [ext_resource type="PackedScene" uid="uid://c0eo82adv7gd0" path="res://scenes/ship.tscn" id="1_87gbl"]
 [ext_resource type="Texture2D" uid="uid://crb143t4sv03d" path="res://assets/background/planet.jpeg" id="2_m85pd"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://buvietb3wse14" path="res://scenes/debris.tscn" id="7_ita1m"]
 [ext_resource type="PackedScene" uid="uid://cop6vdsnbpu8f" path="res://scenes/laser.tscn" id="8_pbr08"]
 [ext_resource type="PackedScene" uid="uid://vgvlko2psnn1" path="res://scenes/player_ui.tscn" id="9_ahu8o"]
+[ext_resource type="PackedScene" uid="uid://cl1nrk4172k2s" path="res://scenes/pause_menu.tscn" id="10_eba38"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yh750"]
 size = Vector2(18, 1096)
@@ -57,8 +58,6 @@ shape = SubResource("RectangleShape2D_qokhb")
 position = Vector2(952, -6)
 shape = SubResource("RectangleShape2D_qokhb")
 
-[node name="Player_UI" parent="." instance=ExtResource("9_ahu8o")]
-
 [node name="Showcase" type="Node2D" parent="."]
 
 [node name="Station" parent="Showcase" instance=ExtResource("5_lovqj")]
@@ -81,6 +80,14 @@ offset_bottom = 386.0
 theme_override_fonts/font = ExtResource("3_vi1va")
 text = "Objects Showcase, after port delete the whole 2D node please"
 
-[connection signal="credits_change" from="Ship" to="Player_UI" method="_on_ship_credits_change"]
-[connection signal="energy_change" from="Ship" to="Player_UI" method="_on_ship_energy_change"]
-[connection signal="storage_change" from="Ship" to="Player_UI" method="_on_ship_storage_change"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("10_eba38")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Player_UI" parent="CanvasLayer" instance=ExtResource("9_ahu8o")]
+
+[connection signal="credits_change" from="Ship" to="CanvasLayer/Player_UI" method="_on_ship_credits_change"]
+[connection signal="energy_change" from="Ship" to="CanvasLayer/Player_UI" method="_on_ship_energy_change"]
+[connection signal="storage_change" from="Ship" to="CanvasLayer/Player_UI" method="_on_ship_storage_change"]

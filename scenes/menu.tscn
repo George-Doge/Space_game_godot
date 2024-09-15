@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2i1wyvqwowi4"]
+[gd_scene load_steps=9 format=3 uid="uid://c2i1wyvqwowi4"]
 
 [ext_resource type="Texture2D" uid="uid://b7f1omsoymkjj" path="res://assets/buttons/PlayButton.png" id="1_1jco3"]
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_6jlu4"]
@@ -7,8 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://i66wqje46cnu" path="res://assets/buttons/ControlsButton.png" id="5_4ek2t"]
 [ext_resource type="FontFile" uid="uid://c4c7awnpvvdux" path="res://assets/fonts/quaver.ttf" id="5_hfo6y"]
 [ext_resource type="Texture2D" uid="uid://cxnki5nt2d1ch" path="res://assets/buttons/InfoSquareButton.png" id="6_mui1m"]
+[ext_resource type="Texture2D" uid="uid://d1uigotgv6fld" path="res://assets/buttons/QuestionmarkSquareButton.png" id="8_sesfj"]
 
-[node name="Control" type="Control"]
+[node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -62,21 +63,29 @@ theme_override_font_sizes/font_size = 50
 text = "SPACE GAME"
 
 [node name="LicenseButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 1048.0
-offset_top = 552.0
-offset_right = 1248.0
-offset_bottom = 752.0
+layout_mode = 2
+offset_left = 928.0
+offset_top = 544.0
+offset_right = 1128.0
+offset_bottom = 744.0
 scale = Vector2(0.45, 0.45)
 tooltip_text = "License"
 texture_normal = ExtResource("6_mui1m")
 
-[node name="Container" type="Container" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CreditsButton" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = 1032.0
+offset_top = 544.0
+offset_right = 1232.0
+offset_bottom = 744.0
+scale = Vector2(0.45, 0.45)
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 9.46
+tooltip_text = "Credits"
+texture_normal = ExtResource("8_sesfj")
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ControlsButton" to="." method="_on_controls_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="LicenseButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]

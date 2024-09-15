@@ -20,6 +20,7 @@ scale = Vector2(0.601042, 0.6)
 texture = ExtResource("2_0tix3")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 464.0
 offset_top = 168.0
 offset_right = 720.0
@@ -27,6 +28,7 @@ offset_bottom = 328.0
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 8.0
 offset_right = 238.0
@@ -35,13 +37,14 @@ theme_override_fonts/font = ExtResource("4_xagut")
 text = "CONTROLS
 
 WASD - MOVEMENT
-Mouse-direction
+Mouse - direction
 Right Button - Shoot
 E - Interact
-F5/F9-save/load"
+F5/F9 - save/load"
 horizontal_alignment = 1
 
 [node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 1056.0
 offset_top = 24.0
 offset_right = 1256.0

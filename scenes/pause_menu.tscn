@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://cl1nrk4172k2s"]
+
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_1w8t6"]
+[ext_resource type="Texture2D" uid="uid://bg1md3wpr3s62" path="res://assets/buttons/ResumeButton.png" id="1_glnft"]
+[ext_resource type="Texture2D" uid="uid://cm8seqj8wc4tj" path="res://assets/buttons/QuitButton.png" id="3_fx2uo"]
+[ext_resource type="FontFile" uid="uid://c4c7awnpvvdux" path="res://assets/fonts/quaver.ttf" id="4_7mwp6"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1w8t6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.231373)
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="ResumeButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -134.0
+offset_top = 181.0
+offset_right = 466.0
+offset_bottom = 381.0
+scale = Vector2(0.45, 0.45)
+tooltip_text = "Resumes the Game"
+texture_normal = ExtResource("1_glnft")
+
+[node name="QuitButton" type="TextureButton" parent="."]
+offset_left = 446.0
+offset_top = 381.0
+offset_right = 1046.0
+offset_bottom = 581.0
+scale = Vector2(0.45, 0.45)
+size_flags_vertical = 10
+size_flags_stretch_ratio = 2.0
+tooltip_text = "Quits Game"
+texture_normal = ExtResource("3_fx2uo")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 409.0
+offset_top = 60.0
+offset_right = 747.0
+offset_bottom = 111.0
+theme_override_fonts/font = ExtResource("4_7mwp6")
+theme_override_font_sizes/font_size = 50
+text = "GAME PAUSED"
+
+[connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
