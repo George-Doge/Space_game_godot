@@ -35,11 +35,24 @@ func _process(delta: float) -> void:
 		animated_sprite.play("idle")
 	else:
 		animated_sprite.play("movement")
+		energy -= 1
 
 	# for now here is a signal which is emmited to UI so it could show UI, place this signals everywhere 
 	# the vaules change
 	emit_signal("energy_change", energy)
 	emit_signal("storage_change", storage)
 	emit_signal("credits_change", credits)
-	
+
 	move_and_slide()
+
+
+func _on_game_manager_credits_load(new_credits: int) -> void:
+	credits = new_credits
+
+
+func _on_game_manager_energy_load(new_energy: int) -> void:
+	energy = new_energy
+
+
+func _on_game_manager_storage_load(new_storage: int) -> void:
+	storage = new_storage

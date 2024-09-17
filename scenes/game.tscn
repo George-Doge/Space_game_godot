@@ -88,6 +88,12 @@ visible = false
 
 [node name="Player_UI" parent="CanvasLayer" instance=ExtResource("9_ahu8o")]
 
+[connection signal="credits_change" from="Ship" to="GameManager" method="_on_ship_credits_change"]
 [connection signal="credits_change" from="Ship" to="CanvasLayer/Player_UI" method="_on_ship_credits_change"]
+[connection signal="energy_change" from="Ship" to="GameManager" method="_on_ship_energy_change"]
 [connection signal="energy_change" from="Ship" to="CanvasLayer/Player_UI" method="_on_ship_energy_change"]
+[connection signal="storage_change" from="Ship" to="GameManager" method="_on_ship_storage_change"]
 [connection signal="storage_change" from="Ship" to="CanvasLayer/Player_UI" method="_on_ship_storage_change"]
+[connection signal="credits_load" from="GameManager" to="Ship" method="_on_game_manager_credits_load"]
+[connection signal="energy_load" from="GameManager" to="Ship" method="_on_game_manager_energy_load"]
+[connection signal="storage_load" from="GameManager" to="Ship" method="_on_game_manager_storage_load"]

@@ -35,6 +35,7 @@ tooltip_text = "Resumes the Game"
 texture_normal = ExtResource("1_glnft")
 
 [node name="QuitButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 446.0
 offset_top = 381.0
 offset_right = 1046.0
