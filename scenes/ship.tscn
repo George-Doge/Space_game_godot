@@ -29,6 +29,14 @@ animations = [{
 "loop": true,
 "name": &"movement",
 "speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ibxn2")
+}],
+"loop": true,
+"name": &"no_power",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pexft"]
@@ -39,7 +47,7 @@ script = ExtResource("1_8clab")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bf6p2")
-animation = &"idle"
+animation = &"no_power"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

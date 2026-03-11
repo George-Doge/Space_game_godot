@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bqlmgvbsou231"]
+[gd_scene load_steps=12 format=3 uid="uid://bqlmgvbsou231"]
 
 [ext_resource type="PackedScene" uid="uid://c0eo82adv7gd0" path="res://scenes/ship.tscn" id="1_87gbl"]
 [ext_resource type="Texture2D" uid="uid://crb143t4sv03d" path="res://assets/background/planet.jpeg" id="2_m85pd"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://plmt0tbeiycb" path="res://scenes/station.tscn" id="5_lovqj"]
 [ext_resource type="PackedScene" uid="uid://grlgbnw4f61m" path="res://scenes/asteroid.tscn" id="6_ywbp5"]
 [ext_resource type="PackedScene" uid="uid://buvietb3wse14" path="res://scenes/debris.tscn" id="7_ita1m"]
-[ext_resource type="PackedScene" uid="uid://cop6vdsnbpu8f" path="res://scenes/laser.tscn" id="8_pbr08"]
 [ext_resource type="PackedScene" uid="uid://vgvlko2psnn1" path="res://scenes/player_ui.tscn" id="9_ahu8o"]
 [ext_resource type="PackedScene" uid="uid://cl1nrk4172k2s" path="res://scenes/pause_menu.tscn" id="10_eba38"]
 
@@ -41,6 +40,8 @@ unique_name_in_owner = true
 script = ExtResource("4_ddsvd")
 
 [node name="WorldBorder" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShapeLeft" type="CollisionShape2D" parent="WorldBorder"]
 position = Vector2(-9, 540)
@@ -68,9 +69,6 @@ position = Vector2(336, 264)
 
 [node name="Debris" parent="Showcase" instance=ExtResource("7_ita1m")]
 position = Vector2(232, 264)
-
-[node name="Laser" parent="Showcase" instance=ExtResource("8_pbr08")]
-position = Vector2(416, 272)
 
 [node name="Label" type="Label" parent="Showcase"]
 offset_left = 80.0

@@ -6,7 +6,7 @@ func _on_ship_energy_change(energy: int) -> void:
 	$EnergyBar/EnergyLabel.hide()
 	$EnergyBar.value = energy
 	
-	if energy <= 30:
+	if energy <= 30 and energy > 0:
 		$EnergyBar/EnergyLabel.text = "LOW ENERGY"
 		$EnergyBar/EnergyLabel.show()
 	
